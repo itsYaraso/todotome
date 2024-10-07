@@ -9,7 +9,7 @@ export default function TodoForm({}: { todo: string[] }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { todoItems, setTodoItems, saveList} = useContext(TodoContext);
-  const[isEditing, setIdEditing] = useState(false)
+  const [isEditing, setIdEditing] = useState(false)
 
   
   return (
@@ -17,7 +17,7 @@ export default function TodoForm({}: { todo: string[] }) {
       <form className="flex gap-2" name="todo-form" title="todo-form">
         <label htmlFor="todo-input"></label>
         <input
-          className="text-black border rounded bg-neutral-500 placeholder:text-black font-bold"
+          className="border rounded bg-neutral-500 placeholder:text-neutral-900 text-neutral-900  font-bold"
           ref={inputRef}
           type="text"
           id="todo-input"

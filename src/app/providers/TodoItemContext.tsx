@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface TodoTypes {
   todoItems: string[];
-  setTodoItems: React.Dispatch<React.SetStateAction<any>>;
+  setTodoItems: React.Dispatch<React.SetStateAction<string[]>>;
   deleteItem: (index: number) => void;
   saveList: Function;
 }
