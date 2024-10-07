@@ -9,7 +9,6 @@ export default function TodoForm({}: { todo: string[] }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { todoItems, setTodoItems, saveList} = useContext(TodoContext);
-  const [isEditing, setIdEditing] = useState(false)
 
   
   return (
