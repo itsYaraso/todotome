@@ -4,15 +4,13 @@ import ToDoList from "./components/TodoList";
 import { TodoContextProvider } from "./providers/TodoItemContext";
 
 const todo: string[] = [];
-export default function app() {
+export default function App() {
   return (
-    <div className="flex flex-col p-4">
+    <div className="flex flex-col p-2">
       <TodoContextProvider>
         <Header />
-        <br></br>
-      <TodoForm todo={todo}/>
-      <br></br>
-      <ToDoList  />
+        <TodoForm todo={todo} />
+        <ToDoList />
       </TodoContextProvider>
     </div>
   );

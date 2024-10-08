@@ -1,15 +1,21 @@
 "use client";
 import React from "react";
 import { useContext, useRef, useState, } from "react";
-import { Pencil } from 'lucide-react';
 import { TodoContext } from "../providers/TodoItemContext";
 
 
 export default function TodoForm({}: { todo: string[] }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { todoItems, setTodoItems, saveList} = useContext(TodoContext);
+  const { todoItems, setTodoItems, saveList, addedTask, setAddedTask} = useContext(TodoContext);
 
+  const taskHandler = ()  =>{
+    setTimeout(() => {
+      setAddedTask(true)
+    }, 1000);
+    setAddedTask(false)
+
+  }
   
   return (
     <div className="flex justify-center">
@@ -26,11 +32,13 @@ export default function TodoForm({}: { todo: string[] }) {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={(event) => {
             event.preventDefault();
+            taskHandler()
             if (inputRef.current) {
               const newTodos = [...todoItems, inputRef.current.value]
               setTodoItems(newTodos);
               saveList(newTodos)
               inputRef.current.value = ""
+              console.log(addedTask)
             }
           }}
           type="submit"

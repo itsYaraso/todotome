@@ -1,4 +1,5 @@
 import { Scale, Scale3D } from "lucide-react";
+import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
   module.exports = {
@@ -30,11 +31,25 @@ import type { Config } from "tailwindcss";
             "100%": {
               transform: "scale(1,1)",
             },
+          },
+
+          fadein: {
+            "0%": {
+              opacity: 0
+            },
+            "50%": {
+              opacity: 1
+            },
+            "100%": {
+              opacity: 0
+            },
+
           }
         },
         animation: {
-          slidein: "slidein .25s",
+          slidein: "slidein .25s ease-in-out",
           growappear: "growappear .25s ease-in-out",
+          fadein: "fadein 1s ease-in-out"
         },
       },
       plugins: [],
